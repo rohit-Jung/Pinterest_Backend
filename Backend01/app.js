@@ -1,8 +1,6 @@
-// Import required modules
 const express = require('express');
-
-// Create an Express application
 const app = express();
+const userModel = require('./users')
 
 // Setting EJS as the view engine
 app.set('view engine', 'ejs');
@@ -13,8 +11,35 @@ app.use(express.static('./public'));
 
 // Define a route handler for the root path
 app.get('/', (req, res) => {
-  // Render the EJS template without passing any data
   res.render('index');
+});
+
+//Creating a data 
+app.get('/create', async (req, res) => {
+  let createdUser = await userModel.create({
+    username: "nono",
+    name: "popo",
+    age: 96
+  })
+  res.send(createdUser)
+});
+
+//Reading all the data in database
+app.get('/find', async (req, res) => {
+  let allUsers = await userModel.find()
+  res.send(allUsers)
+});
+
+//Reading data of a specific user 
+app.get('/find1', async (req, res) => {
+  let oneUser = await userModel.findOne({username: 'nono'})
+  res.send(oneUser)
+});
+
+//Deleting data
+app.get('/deleted', async (req, res) => {
+  let deletedUser = await userModel.findOneAndDelete({username: 'nono'})
+  res.send(deletedUser)
 });
 
 // Start the server
