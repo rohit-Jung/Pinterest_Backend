@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/createpost.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Create Posts</h1>
+        <hr>
+        <form action="/createpost" method="post" enctype="multipart/form-data">
+            <input type="file" name="postedFile">
+            <input type="text" placeholder="Title" name="title">
+            <textarea name="description" id="" cols="30" rows="10" placeholder="Description"></textarea>
+            <button type="submit">Create Post</button>
+
+        </form>
+    </div>
+</body>
+
+</html>

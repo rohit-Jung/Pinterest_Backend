@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="menu">
+        <img draggable="false" class="logo" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/pinterest-512.png">
+        <a href="/feed" class="home">Home</a>
+        <input id="one" type="text" class="search-bar" placeholder="Search">
+        <button id="two" class="search-bar"></button>
+        <div class="icon-container">
+            <img tabindex="1" draggable="false" class="icon bell" src="https://i.hizliresim.com/rcvolcu.png">
+            <img tabindex="1" draggable="false" class="icon message" src="https://i.hizliresim.com/newumah.png">
+            <img tabindex="1" draggable="false" class="icon pp" src="/images/uploads/<%= userData.profileImage %>">
+            <img tabindex="1" draggable="false" class="icon btn" src="https://i.hizliresim.com/g15mqud.png">
+
+            <!----FOCUS----->
+            <div tabindex="1" class="focus-bar bell-bar">nothing</div>
+            <!-------------------->
+            <div tabindex="1" class="focus-bar message-bar">you are alone ?</div>
+            <!-------------------->
+            <div tabindex="1" class="focus-bar pp-bar"><img src="/images/uploads/<%= userData.profileImage %>"><a
+                    href="/profile">Visit Profile</a></div>
+            <!-------------------->
+            <div tabindex="1" class="focus-bar btn-bar">¯\_( ͡° ͜ʖ ͡°)_/¯</div>
+
+        </div>
+    </div>
+    <!--------------------------->
+    <div class="responsive-search-bar">
+        <input type="text">
+        <p class="close">❌</p>
+    </div>
+    <div class="container">
+        <form id="uploadForm" action="/fileUpload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <button type="submit">Upload</button>
+        </form>
+        <div class="card">
+            <div class="cover-photo">
+                <i class="pencil ri-pencil-line"></i>
+                <img src="/images/uploads/<%= userData.profileImage %>" class="profile">
+            </div>
+            <div class="main-info">
+                <h3 class="profile-name">
+                    <%= userData.username %> <br>
+                        <div class="bio">
+                            <%= userData.email %> <br>
+                                0 following
+                        </div>
+                </h3>
+                <div class="buttons">
+                    <a href="/feed" class="btn">Explore</a>
+                    <a href="/createpost" class="btn">Create Post</a>
+                    <a href="/logout" class="btn">Logout</a>
+                </div>
+            </div>
+
+        </div>
+        <script src="https://kit.fontawesome.com/ee7a178a15.js" crossorigin="anonymous"></script>
+        <h1>Your Uploads</h1>
+        <div class="main-image-container">
+            <% userData.posts.forEach((elem)=> {%>
+                <div class="image-container">
+                    <div class="window">
+                        <img class="foto" src="/images/uploads/<%= elem?.image %>">
+                        <p class="content">
+                            <%=elem.title%>
+                        </p>
+                        <p class="content">@ <%=userData.username%>
+                        </p>
+
+                        <div class="hover-zone">
+                            <!-------------------->
+                            <div class="bottom-bar">
+                                <a>↗ website.com</a>
+                                <div class="radius-ico">
+                                    <img
+                                        src="https://cdn3.iconfinder.com/data/icons/iconset-1-1/24/icon_set_outlinder-10-256.png">
+                                    <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-more-256.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+
+
+        </div>
+        <script>
+            document.querySelector('.pencil').addEventListener("click", () => {
+                document.querySelector('#uploadForm input').click();
+            })
+
+            document.querySelector('#uploadForm input').addEventListener("change", () => {
+                document.querySelector('#uploadForm').submit();
+            })
+        </script>
+</body>
+
+</html>

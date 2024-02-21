@@ -1,0 +1,43 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../stylesheets/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </head>
+  
+  <body>
+    <div class="background"></div>
+    <div class="login-container" id="loginContainer">
+      <div class="login-header">
+        <h2>Welcome to <span>Register page</span></h2>
+        <p>Register Your Account here </p>
+      </div>
+      <div class="login-form">
+        <form action="/register" method="post">
+          <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" name="username" placeholder="Username" required>
+          </div>
+          <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" name="password" placeholder="Password" required>
+          </div>
+          <div class="options">
+            <label for="remember">
+              <input type="checkbox" id="remember"> Remember me
+            </label>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+          </div>
+          <button type="submit">Register</button>
+        </form>
+      </div>
+      <div class="signup-link">
+        Already have an account? <a href="/login">Sign Up</a>
+      </div>
+    </div>
+    <script src="../javascripts/register.js"></script>
+  </body>
+  
+  </html>
+  
