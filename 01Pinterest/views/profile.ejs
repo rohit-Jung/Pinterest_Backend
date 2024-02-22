@@ -23,17 +23,14 @@
 
             <!----FOCUS----->
             <div tabindex="1" class="focus-bar bell-bar">nothing</div>
-            <!-------------------->
             <div tabindex="1" class="focus-bar message-bar">you are alone ?</div>
-            <!-------------------->
             <div tabindex="1" class="focus-bar pp-bar"><img src="/images/uploads/<%= userData.profileImage %>"><a
                     href="/profile">Visit Profile</a></div>
-            <!-------------------->
             <div tabindex="1" class="focus-bar btn-bar">¯\_( ͡° ͜ʖ ͡°)_/¯</div>
 
         </div>
     </div>
-    <!--------------------------->
+
     <div class="responsive-search-bar">
         <input type="text">
         <p class="close">❌</p>
@@ -67,6 +64,10 @@
         <script src="https://kit.fontawesome.com/ee7a178a15.js" crossorigin="anonymous"></script>
         <h1>Your Uploads</h1>
         <div class="main-image-container">
+
+            <!-- using dot operator to extract posts array 
+            then using forEach on posts array to extract and display posted posts of the logged in user info on "/profile" page -->
+
             <% userData.posts.forEach((elem)=> {%>
                 <div class="image-container">
                     <div class="window">
@@ -91,17 +92,23 @@
                     </div>
                 </div>
                 <% }) %>
-
-
         </div>
+
+
         <script>
+
+            //Here the pencil button is clicked then input field of form is activated/clicked 
             document.querySelector('.pencil').addEventListener("click", () => {
                 document.querySelector('#uploadForm input').click();
             })
 
+            //any change in the form/if file is uploaded then the form is submitted itself
             document.querySelector('#uploadForm input').addEventListener("change", () => {
                 document.querySelector('#uploadForm').submit();
             })
+
+            //All this is done because the form is hidden and we want to execute the actions on form 
+            //according to the user interaction with button/icon there on page
         </script>
 </body>
 

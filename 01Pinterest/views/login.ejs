@@ -19,6 +19,10 @@
                 <p class="error">
                     <%= error %>
                 </p>
+
+                <!-- the form input name should match with the names used in the index.js file
+                the form is redirected to /login route when submitted -->
+                
                 <form action="/login" method="post">
                     <input type="username" name="username" placeholder="Username" class="detail" /><br />
                     <input type="password" name="password" placeholder="Password" class="detail" /><br />

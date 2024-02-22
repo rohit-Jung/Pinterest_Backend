@@ -12,6 +12,11 @@
     <div class="container">
         <h1>Create Posts</h1>
         <hr>
+
+        <!-- the form input name should match with the names used in the index.js file
+        enctype="multipart/form-data" is important to use multer
+        the form is redirected to createpost route when submitted -->
+        
         <form action="/createpost" method="post" enctype="multipart/form-data">
             <input type="file" name="postedFile">
             <input type="text" placeholder="Title" name="title">

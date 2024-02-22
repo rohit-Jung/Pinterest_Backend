@@ -22,23 +22,25 @@
 
             <!----FOCUS----->
             <div tabindex="1" class="focus-bar bell-bar">nothing</div>
-            <!-------------------->
             <div tabindex="1" class="focus-bar message-bar">you are alone ?</div>
-            <!-------------------->
             <div tabindex="1" class="focus-bar pp-bar"><img src="/images/uploads/<%= userData?.profileImage %>"><a
                     href="/profile">Visit Profile</a></div>
-            <!-------------------->
             <div tabindex="1" class="focus-bar btn-bar">¯\_( ͡° ͜ʖ ͡°)_/¯</div>
 
         </div>
     </div>
-    <!--------------------------->
     <div class="responsive-search-bar">
         <input type="text">
         <p class="close">❌</p>
     </div>
-    <!--------------------------->
     <div class="main-image-container">
+
+        <!-- we are able to loop over posts as we have populated it in the index.js (/feed) route
+
+        looping over each object in array allUsers 
+        then using dot operator to extract posts array 
+        again using forEach on posts array to extract and display posts info on webpage -->
+
         <% allUsers.forEach((user)=> {
             user.posts.forEach((post) => { %>
             <div class="container">
@@ -53,7 +55,6 @@
                         <div class="top-bar">
                             <a>Save</a>
                         </div>
-                        <!-------------------->
                         <div class="bottom-bar">
                             <a>↗ website.com</a>
                             <div class="radius-ico">
@@ -66,6 +67,7 @@
                 </div>
             </div>
             <% }) }) %>
+
     </div>
 
 
